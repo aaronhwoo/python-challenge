@@ -18,10 +18,11 @@ with open(csvpath, newline="") as csvfile:
 
     for row in csvreader:
         total_votes = total_votes + 1
-        if row[2] not in candidates:
-            candidates[row[2]] = 1
+        current_vote = row[2]
+        if current_vote not in candidates:
+            candidates[current_vote] = 1
         else: 
-            candidates[row[2]] = candidates[row[2]] + 1
+            candidates[current_vote] = candidates[current] + 1
     print(total_votes)
     print(candidates)
             
