@@ -42,38 +42,32 @@ avg_profit = net_profit/total_mon
 #print(f'Greatest Increase in Profits: {g_increase_date} (${g_increase})')
 #print(f'Greatest Decrease in Profits: {g_decrease_date} (${g_decrease})')
 
-row0 = ["Financial Analysis"]
-row1 = ["--------------------------------------------------"]
-row2 = [f"Total Months: {total_mon}"]
-row3 = [f"Total: ${net_profit}"]
-row4 = [f"Average Change: ${avg_profit}"]
-row5 = [f'Greatest Increase in Profits: {g_increase_date} (${g_increase})']
-row6 = [f'Greatest Decrease in Profits: {g_decrease_date} (${g_decrease})']
+row0 = "Financial Analysis"
+row1 = "--------------------------------------------------"
+row2 = f"Total Months: {total_mon}"
+row3 = f"Total: ${net_profit}"
+row4 = f"Average Change: ${avg_profit}"
+row5 = f'Greatest Increase in Profits: {g_increase_date} (${g_increase})'
+row6 = f'Greatest Decrease in Profits: {g_decrease_date} (${g_decrease})'
 
-print(row0)
-print(row1)
-print(row2)
-print(row3)
-print(row4)
-print(row5)
-print(row6)
+export_zip = [row0, row1, row2, row3, row4, row5, row6]
 
-#export = zip(row0, row1, row2, row3, row4, row5, row6)
+for row in export_zip:
+    print(row)
 
-#can't get this to work in a formatted way
-#for analysis in export: 
-#    print(analysis)
 
 output_file = os.path.join("financial_analysis.csv")
 
 with open(output_file, "w", newline="") as datafile:
     writer = csv.writer(datafile)
-
-    #writer.writerows(export) doesn't seem to work but it works with individual row, problem in tuple?
-    writer.writerow(row0)
-    writer.writerow(row1)
-    writer.writerow(row2)
-    writer.writerow(row3)
-    writer.writerow(row4)
-    writer.writerow(row5)
-    writer.writerow(row6)
+    #writer.writerow(export_zip)
+    data = [i.strip()split(',') for i in export_zip]
+    for d in data
+        writer.writerow(d)
+    #writer.writerow(row0)
+    #writer.writerow(row1)
+    #writer.writerow(row2)
+    #writer.writerow(row3)
+    #writer.writerow(row4)
+    #writer.writerow(row5)
+    #writer.writerow(row6)

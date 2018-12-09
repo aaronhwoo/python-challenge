@@ -24,4 +24,9 @@ with open(csvpath, newline="") as csvfile:
             candidates[current_vote] = candidates[current_vote] + 1
     print(total_votes)
     print(candidates)
-            
+
+
+#row0 = "Election Results"
+#row1 = "---------------------------"
+for candidates, votes in candidates.items():
+    print(f'Candidates : {candidates}     Votes: {votes}'.format(candidates, votes))
