@@ -59,15 +59,5 @@ for row in export_zip:
 output_file = os.path.join("financial_analysis.csv")
 
 with open(output_file, "w", newline="") as datafile:
-    writer = csv.writer(datafile)
-    #writer.writerow(export_zip)
-    data = [i.strip()split(',') for i in export_zip]
-    for d in data
-        writer.writerow(d)
-    #writer.writerow(row0)
-    #writer.writerow(row1)
-    #writer.writerow(row2)
-    #writer.writerow(row3)
-    #writer.writerow(row4)
-    #writer.writerow(row5)
-    #writer.writerow(row6)
+    for line in export_zip:
+        datafile.write(line)

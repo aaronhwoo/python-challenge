@@ -9,6 +9,8 @@ csvpath = os.path.join("Resources", "election_data.csv")
 total_votes = 0
 candidates = {}
 percentage_vote = 0
+winner = ""
+winner_votes = 0
 
 #open data file and skip header
 with open(csvpath, newline="") as csvfile:
@@ -22,11 +24,26 @@ with open(csvpath, newline="") as csvfile:
             candidates[current_vote] = 1
         else: 
             candidates[current_vote] = candidates[current_vote] + 1
-    print(total_votes)
-    print(candidates)
 
 
-#row0 = "Election Results"
-#row1 = "---------------------------"
+
+    print(type(candidates))
+output_file = os.path.join("Election_results.csv")
+
+with open(output_file, "w", newline="") as text_file:
+    text_file.write("Election Results\n")
+    text_file.write("---------------------------\n")
+    for candidates, votes in candidates.items():
+        text_file.write(f'Candidates : {candidates}     Votes: {votes}     Percent:{votes*100/total_votes}%\n')
+    text_file.write(f'The winner is {winner}')      
+
+print(type(candidates))
+print("Election Results")
+print("---------------------------")
 for candidates, votes in candidates.items():
-    print(f'Candidates : {candidates}     Votes: {votes}'.format(candidates, votes))
+    print(type(candidates))
+    print(f'Candidate : {c_candidate}     Votes: {c_votes}     Percent:{c_votes*100/total_votes}%')
+    if votes > winner_votes:
+        winner = candidates
+        winner_votes = votes
+print("The winner is " + winner)
