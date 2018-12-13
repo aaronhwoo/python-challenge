@@ -62,4 +62,4 @@ for candidates, votes in candidates.items():
     if votes > winner_votes:
         winner = candidates
         winner_votes = votes
-print("The winner is " + winner)
+print(f'The winner is {winner}.')
