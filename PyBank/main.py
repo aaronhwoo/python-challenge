@@ -60,4 +60,4 @@ output_file = os.path.join("financial_analysis.csv")
 
 with open(output_file, "w", newline="") as datafile:
     for line in export_zip:
-        datafile.write(line)
+        datafile.write(line + "\n")
